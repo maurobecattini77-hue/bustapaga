@@ -163,6 +163,160 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
   .card h2 { font-size: 24px !important; }
 }
 </style>
+
+<style>
+/* ===================================================================== */
+/*  IMPIANTO NUOVO 25/07/2026                                          */
+/*  Carattere 21 e colonna del testo 880 centrata. La card NON cambia    */
+/*  larghezza: si stringe solo il testo. Il trucco e' il padding largo,  */
+/*  e chi deve restare larga esce col margine negativo.                  */
+/* ===================================================================== */
+:root{ --corpo:21px; --sfora:78px; }          /* (1036 - 880) / 2 = 78 */
+
+@media (min-width:901px){
+  .card{ padding-left:122px !important; padding-right:122px !important; }   /* 44 + 78 */
+  /* tutto quello che deve tornare larga come prima */
+  .card > svg, .card > .binario, .card > .zoomabile:not(.filo),
+  .card > .gf-tempo-scorri, .card > .gf-archi, .card > .gf-scala,
+  .card > .gf-scala-eti, .card > .gf-confronto, .card > table,
+  .card > .sfonda, .dida.sfonda{
+    margin-left:calc(-1 * var(--sfora)); margin-right:calc(-1 * var(--sfora));
+  }
+  .dida.sfonda{ max-width:1036px; }
+}
+/* ⚠ svg.mappa NON prende i margini negativi: perderebbe la centratura
+   (sta dentro .binario, che sfonda per conto suo). */
+
+.card p.t{ font-size:var(--corpo); }
+.boxlist li{ font-size:18px; }
+.shelfc p{ font-size:17.5px; }
+blockquote.def p.q{ font-size:24px; }
+@media (max-width:900px){ :root{ --corpo:19px; } }
+@media (max-width:700px){ :root{ --corpo:18px; } }
+
+/* ---------- LE FOTO: le tre larghezze ---------- */
+.filo{ max-width:880px; margin-left:auto; margin-right:auto; }
+.sfonda{ max-width:1036px; margin-left:auto; margin-right:auto; }
+.fotoriga{ max-width:880px; margin-left:auto; margin-right:auto; }
+
+/* ---------- LA LENTE NUOVA ---------- */
+.zoomabile{ position:relative; }
+.zoomabile > .lente{
+  position:absolute; top:10px; right:10px; width:44px; height:44px; border-radius:50%;
+  border:1px solid #D9DACF; background:rgba(255,255,255,.94); color:#57534a;
+  display:flex; align-items:center; justify-content:center; cursor:zoom-in; padding:0; z-index:3;
+  transition:opacity .16s ease, transform .16s ease;
+}
+.zoomabile > .lente svg{ width:22px; height:22px; display:block; }
+.zoomabile > .lente:hover{ background:#fff; border-color:#C9C4B8; transform:scale(1.06); }
+/* col mouse: compare solo quando ci passi sopra */
+@media (hover:hover) and (pointer:fine){
+  .zoomabile > .lente{ opacity:0; pointer-events:none; }
+  .zoomabile:hover > .lente,
+  .zoomabile:focus-within > .lente{ opacity:1; pointer-events:auto; }
+}
+/* sul telefono il passaggio del mouse non esiste: sempre visibile, un po' piu' piccola */
+@media (hover:none){
+  .zoomabile > .lente{ opacity:1; width:36px; height:36px; top:8px; right:8px; }
+  .zoomabile > .lente svg{ width:19px; height:19px; }
+}
+@media print{ .zoomabile > .lente{ display:none !important; } }
+
+/* il velo: PIENO, cosi' sotto non si legge niente */
+#velofoto, #velografica{ background:#262420 !important; }
+#velofoto img{ border-radius:8px; }
+</style>
+
+<style>
+/* ===================================================================== */
+/*  IMPIANTO NUOVO - moduli con lo stile scritto nel tag   */
+/*  Stessi numeri (carattere 21, colonna 880), ma agganciati all'attributo */
+/*  perche' qui le classi non ci sono.                                    */
+/* ===================================================================== */
+section[data-screen-label] p[style*="font-size:19px"]{ font-size:var(--corpo) !important; }
+section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !important; }
+
+@media (min-width:901px){
+  /* il riquadro del testo dentro la card: padding 40 -> 118 (40 + 78) */
+  section[data-screen-label] > div[style*="padding:34px 40px"]{
+    padding-left:118px !important; padding-right:118px !important;
+  }
+  /* chi deve restare largo esce dal padding */
+  section[data-screen-label] > div > svg,
+  section[data-screen-label] > div > .binario,
+  section[data-screen-label] > div > .zoomabile:not(.filo),
+  section[data-screen-label] > div > .sfonda{
+    margin-left:calc(-1 * var(--sfora)) !important;
+    margin-right:calc(-1 * var(--sfora)) !important;
+  }
+}
+</style>
+
+<style>
+/* ============ RIFINITURE 25/07 ============ */
+/* la lentina nuova deve vincere anche sui moduli che hanno un <style> nel body */
+.zoomabile > .lente{
+  width:44px !important; height:44px !important; border-radius:50% !important;
+  top:10px !important; right:10px !important;
+  background:rgba(255,255,255,.94) !important; border:1px solid #D9DACF !important;
+}
+.zoomabile > .lente svg{ width:22px !important; height:22px !important; }
+@media (hover:hover) and (pointer:fine){
+  .zoomabile > .lente{ opacity:0 !important; pointer-events:none !important; }
+  .zoomabile:hover > .lente, .zoomabile:focus-within > .lente{
+    opacity:1 !important; pointer-events:auto !important; }
+}
+@media (hover:none){
+  .zoomabile > .lente{ opacity:1 !important; width:38px !important; height:38px !important;
+    top:8px !important; right:8px !important; }
+  .zoomabile > .lente svg{ width:20px !important; height:20px !important; }
+}
+/* il guscio che avvolge la singola foto, quando il contenitore non si presta */
+.zoom-foto{ position:relative; display:block; line-height:0; }
+/* i moduli senza classi: l'etichetta sta su section E su div */
+[data-screen-label] p[style*="font-size:19px"]{ font-size:var(--corpo) !important; }
+[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !important; }
+@media (min-width:901px){
+  [data-screen-label] > div[style*="padding:34px 40px"]{
+    padding-left:118px !important; padding-right:118px !important; }
+  [data-screen-label] > div > svg,
+  [data-screen-label] > div > .binario,
+  [data-screen-label] > div > .zoomabile:not(.filo),
+  [data-screen-label] > div > .sfonda{
+    margin-left:calc(-1 * var(--sfora)) !important;
+    margin-right:calc(-1 * var(--sfora)) !important; }
+}
+</style>
+
+<style>
+/* ============ SELETTORI CON E SENZA SPAZIO ============ */
+/* il browser normalizza lo style scritto nel tag: "font-size: 19px" con lo spazio.
+   Quindi ogni selettore va scritto in entrambe le forme. */
+[data-screen-label] p[style*="font-size:19px"],
+[data-screen-label] p[style*="font-size: 19px"]{ font-size:var(--corpo) !important; }
+[data-screen-label] li[style*="font-size:17px"],
+[data-screen-label] li[style*="font-size: 17px"]{ font-size:18px !important; }
+
+@media (min-width:901px){
+  [data-screen-label] > div[style*="padding:34px 40px"],
+  [data-screen-label] > div[style*="padding: 34px 40px"]{
+    padding-left:118px !important; padding-right:118px !important;   /* 40 + 78 */
+  }
+  /* chi deve restare largo esce dal padding nuovo */
+  [data-screen-label] > div > svg,
+  [data-screen-label] > div > .binario,
+  [data-screen-label] > div > .zoomabile:not(.filo),
+  [data-screen-label] > div > .sfonda{
+    margin-left:calc(-1 * var(--sfora)) !important;
+    margin-right:calc(-1 * var(--sfora)) !important;
+  }
+  /* la fascia dell'illustrazione in cima alla card intro resta com'e' */
+  [data-screen-label] > div[style*="padding:16px 16px 0"],
+  [data-screen-label] > div[style*="padding: 16px 16px 0"]{
+    padding-left:16px !important; padding-right:16px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div style="min-height:100vh;">
@@ -212,7 +366,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
         <div style="padding:16px 16px 0;">
           <div style="position:relative;border-radius:8px;overflow:hidden;border:1px solid #D9DACF;">
             <!-- Illustrazione iniziale (sostituibile con una foto di Mauro) -->
-            <img src="assets/copertina.jpg" alt="Un giovane panettiere guarda la sua prima busta paga, dietro il bancone del panificio" style="display:block;width:100%;height:auto;">
+            <img loading="lazy" decoding="async" src="assets/copertina.jpg" alt="Un giovane panettiere guarda la sua prima busta paga, dietro il bancone del panificio" style="display:block;width:100%;height:auto;">
             <div style="position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to top, rgba(38,36,32,.38), transparent);"></div>
           </div>
         </div>
@@ -236,7 +390,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
         <p class="t">Prima di entrare nei numeri, guarda questo breve video: racconta in modo semplice che cos'è la busta paga e a che cosa serve. Poi, card dopo card, smonteremo quel foglio pezzo per pezzo.</p>
         <div data-noprint="1" style="margin:26px 0 0;position:relative;">
                     <button class="video-anteprima" id="video-ant" onclick="avviaVideo()" aria-label="Avvia il video nella pagina">
-            <img src="assets/miniatura-video.jpg" alt="Anteprima del video: Lavoro istruzioni per l'uso, la busta paga">
+            <img loading="lazy" decoding="async" data-lente="no" src="assets/miniatura-video.jpg" alt="Anteprima del video: Lavoro istruzioni per l'uso, la busta paga">
             <span class="play"><span></span></span>
           </button>
           <div class="video-cornice" id="video-cor" style="display:none;"></div>
@@ -381,8 +535,8 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
             <div style="display:flex;justify-content:space-between;gap:14px;border-top:1px solid #EEECE3;padding-top:10px;"><span style="font-weight:600;">Totale elementi accessori</span><strong style="color:#8a5320;">€ 218,16</strong></div>
           </div>
         </div><div data-noprint="1" style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
-          <img src="assets/impasto.jpg" alt="Un panettiere spolvera di farina l'impasto sul banco" style="display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:8px 0 0 8px;">
-          <img src="assets/glassa.jpg" alt="Un pasticcere cola la glassa sui pasticcini appena decorati" style="display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:0 8px 8px 0;">
+          <img loading="lazy" decoding="async" src="assets/impasto.jpg" alt="Un panettiere spolvera di farina l'impasto sul banco" style="display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:8px 0 0 8px;">
+          <img loading="lazy" decoding="async" src="assets/glassa.jpg" alt="Un pasticcere cola la glassa sui pasticcini appena decorati" style="display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:0 8px 8px 0;">
         </div></div>
         <p class="t">Fissi più accessori: 2.092,55 + 218,16 = <strong class="hl">2.310,71 euro</strong>. Questa è la <strong>retribuzione lorda</strong> di Marco per il mese di marzo. "Lorda" perché - lo vedrai nel prossimo blocco - da qui bisogna ancora togliere contributi e imposte: nessun lavoratore riceve in tasca il lordo.</p>
       </section>
@@ -850,7 +1004,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
           <li><strong>Come cresce</strong> → il "gruzzolo" accantonato in azienda si rivaluta ogni anno: 1,5 % fisso più il 75 % dell'inflazione. Così, negli anni, non perde valore;</li>
           <li><strong>Dove va</strong> → entro sei mesi dall'assunzione il lavoratore sceglie: lasciarlo <strong>in azienda</strong> (e lo custodisce il datore) oppure destinarlo a un <strong>fondo pensione</strong>, dove viene investito per costruire una pensione integrativa. È una delle prime scelte finanziarie importanti della vita;</li>
           <li><strong>L'anticipo</strong> → dopo otto anni di servizio se ne può chiedere in anticipo fino al 70 %, per comprare la prima casa o per spese sanitarie importanti.</li>
-        </ul><img data-noprint="1" src="assets/tfr.jpg" alt="Un barattolo di monete con l'etichetta TFR e una piantina che cresce: il TFR che matura" style="display:block;width:100%;height:auto;border-radius:8px;border:1px solid #D9DACF;"></div>
+        </ul><img data-lente="no" loading="lazy" decoding="async" data-noprint="1" src="assets/tfr.jpg" alt="Un barattolo di monete con l'etichetta TFR e una piantina che cresce: il TFR che matura" style="display:block;width:100%;height:auto;border-radius:8px;border:1px solid #D9DACF;"></div>
         <p class="t">Dopo dieci anni al Forno Aurora, tra quota e rivalutazioni, Marco avrà da parte più di <strong>ventitremila euro</strong>: uno stipendio differito che matura in silenzio, mese dopo mese, scritto in piccolo nel piede della sua busta.</p>
       
         <div class="shelfc" style="--tn:#edf5f4;--cp:#4E918C;--et:#2f635f;"><div class="shelfeti">Da ricordare</div><p>Il TFR matura in silenzio, circa una mensilità all'anno: non lo vedi in busta, ma è tuo e ti aspetta.</p></div>
@@ -1217,7 +1371,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
             <div style="background:#ECEBE4;border:1px solid #DDDCD2;border-radius:14px;padding:14px;margin-top:12px;">
               <svg class="mappa" viewBox="0 0 960 560" style="display:block;width:100%;height:auto;" role="img" aria-label="Mappa di esempio del primo blocco: la retribuzione di Marco">
               <defs><marker id="c3-ink" viewBox="0 0 10 9" refX="9.2" refY="4.5" markerWidth="10" markerHeight="9" orient="auto"><path d="M0.5,0.6 C4,2.7 6.6,3.9 9.4,4.5 C6.6,5.1 4,6.3 0.5,8.4 C1.9,6.3 1.9,2.7 0.5,0.6 Z" fill="#57534a"/></marker></defs>
-              <rect x="20" y="16" width="920" height="520" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti2"><rect x="20.0" y="16.0" width="920.0" height="520.0" rx="16"/></clipPath><path clip-path="url(#quadretti2)" d="M54.0 18.0 V534.0 M88.0 18.0 V534.0 M122.0 18.0 V534.0 M156.0 18.0 V534.0 M190.0 18.0 V534.0 M224.0 18.0 V534.0 M258.0 18.0 V534.0 M292.0 18.0 V534.0 M326.0 18.0 V534.0 M360.0 18.0 V534.0 M394.0 18.0 V534.0 M428.0 18.0 V534.0 M462.0 18.0 V534.0 M496.0 18.0 V534.0 M530.0 18.0 V534.0 M564.0 18.0 V534.0 M598.0 18.0 V534.0 M632.0 18.0 V534.0 M666.0 18.0 V534.0 M700.0 18.0 V534.0 M734.0 18.0 V534.0 M768.0 18.0 V534.0 M802.0 18.0 V534.0 M836.0 18.0 V534.0 M870.0 18.0 V534.0 M904.0 18.0 V534.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
+              <rect x="20" y="16" width="920" height="520" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti1"><rect x="20.0" y="16.0" width="920.0" height="520.0" rx="16"/></clipPath><path clip-path="url(#quadretti1)" d="M54.0 18.0 V534.0 M88.0 18.0 V534.0 M122.0 18.0 V534.0 M156.0 18.0 V534.0 M190.0 18.0 V534.0 M224.0 18.0 V534.0 M258.0 18.0 V534.0 M292.0 18.0 V534.0 M326.0 18.0 V534.0 M360.0 18.0 V534.0 M394.0 18.0 V534.0 M428.0 18.0 V534.0 M462.0 18.0 V534.0 M496.0 18.0 V534.0 M530.0 18.0 V534.0 M564.0 18.0 V534.0 M598.0 18.0 V534.0 M632.0 18.0 V534.0 M666.0 18.0 V534.0 M700.0 18.0 V534.0 M734.0 18.0 V534.0 M768.0 18.0 V534.0 M802.0 18.0 V534.0 M836.0 18.0 V534.0 M870.0 18.0 V534.0 M904.0 18.0 V534.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
               <g font-family="Schibsted Grotesk, sans-serif">
               <text x="60" y="66" font-size="18.67" font-weight="700" letter-spacing="2.4" fill="#4b473e">IL MIO QUADERNO · BLOCCO 1</text>
               <text x="60" y="105.8" font-family="Fraunces, serif" font-weight="600" font-size="35.51" fill="#33312c">Da dove nasce la paga di Marco</text>
@@ -1253,7 +1407,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
             <div style="background:#ECEBE4;border:1px solid #DDDCD2;border-radius:14px;padding:14px;margin-top:12px;">
               <svg class="mappa" viewBox="0 0 960 620" style="display:block;width:100%;height:auto;" role="img" aria-label="Mappa di esempio del secondo blocco: dove vanno i soldi trattenuti">
               <defs><marker id="c3b-ink" viewBox="0 0 10 9" refX="9.2" refY="4.5" markerWidth="10" markerHeight="9" orient="auto"><path d="M0.5,0.6 C4,2.7 6.6,3.9 9.4,4.5 C6.6,5.1 4,6.3 0.5,8.4 C1.9,6.3 1.9,2.7 0.5,0.6 Z" fill="#57534a"/></marker></defs>
-              <rect x="20" y="16" width="920" height="580" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti3"><rect x="20.0" y="16.0" width="920.0" height="580.0" rx="16"/></clipPath><path clip-path="url(#quadretti3)" d="M54.0 18.0 V594.0 M88.0 18.0 V594.0 M122.0 18.0 V594.0 M156.0 18.0 V594.0 M190.0 18.0 V594.0 M224.0 18.0 V594.0 M258.0 18.0 V594.0 M292.0 18.0 V594.0 M326.0 18.0 V594.0 M360.0 18.0 V594.0 M394.0 18.0 V594.0 M428.0 18.0 V594.0 M462.0 18.0 V594.0 M496.0 18.0 V594.0 M530.0 18.0 V594.0 M564.0 18.0 V594.0 M598.0 18.0 V594.0 M632.0 18.0 V594.0 M666.0 18.0 V594.0 M700.0 18.0 V594.0 M734.0 18.0 V594.0 M768.0 18.0 V594.0 M802.0 18.0 V594.0 M836.0 18.0 V594.0 M870.0 18.0 V594.0 M904.0 18.0 V594.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0 M22.0 560.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
+              <rect x="20" y="16" width="920" height="580" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti1"><rect x="20.0" y="16.0" width="920.0" height="580.0" rx="16"/></clipPath><path clip-path="url(#quadretti1)" d="M54.0 18.0 V594.0 M88.0 18.0 V594.0 M122.0 18.0 V594.0 M156.0 18.0 V594.0 M190.0 18.0 V594.0 M224.0 18.0 V594.0 M258.0 18.0 V594.0 M292.0 18.0 V594.0 M326.0 18.0 V594.0 M360.0 18.0 V594.0 M394.0 18.0 V594.0 M428.0 18.0 V594.0 M462.0 18.0 V594.0 M496.0 18.0 V594.0 M530.0 18.0 V594.0 M564.0 18.0 V594.0 M598.0 18.0 V594.0 M632.0 18.0 V594.0 M666.0 18.0 V594.0 M700.0 18.0 V594.0 M734.0 18.0 V594.0 M768.0 18.0 V594.0 M802.0 18.0 V594.0 M836.0 18.0 V594.0 M870.0 18.0 V594.0 M904.0 18.0 V594.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0 M22.0 560.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
               <g font-family="Schibsted Grotesk, sans-serif">
               <text x="60" y="66" font-size="18.67" font-weight="700" letter-spacing="2.4" fill="#4b473e">IL MIO QUADERNO · BLOCCO 2</text>
               <text x="60" y="105.8" font-family="Fraunces, serif" font-weight="600" font-size="35.51" fill="#33312c">Dove vanno i soldi che non vedo</text>
@@ -1288,7 +1442,7 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
             <div style="background:#ECEBE4;border:1px solid #DDDCD2;border-radius:14px;padding:14px;margin-top:12px;">
               <svg class="mappa" viewBox="0 0 960 600" style="display:block;width:100%;height:auto;" role="img" aria-label="Mappa di esempio del terzo blocco: la busta intera e il TFR">
               <defs><marker id="c3c-ink" viewBox="0 0 10 9" refX="9.2" refY="4.5" markerWidth="10" markerHeight="9" orient="auto"><path d="M0.5,0.6 C4,2.7 6.6,3.9 9.4,4.5 C6.6,5.1 4,6.3 0.5,8.4 C1.9,6.3 1.9,2.7 0.5,0.6 Z" fill="#57534a"/></marker></defs>
-              <rect x="20" y="16" width="920" height="560" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti4"><rect x="20.0" y="16.0" width="920.0" height="560.0" rx="16"/></clipPath><path clip-path="url(#quadretti4)" d="M54.0 18.0 V574.0 M88.0 18.0 V574.0 M122.0 18.0 V574.0 M156.0 18.0 V574.0 M190.0 18.0 V574.0 M224.0 18.0 V574.0 M258.0 18.0 V574.0 M292.0 18.0 V574.0 M326.0 18.0 V574.0 M360.0 18.0 V574.0 M394.0 18.0 V574.0 M428.0 18.0 V574.0 M462.0 18.0 V574.0 M496.0 18.0 V574.0 M530.0 18.0 V574.0 M564.0 18.0 V574.0 M598.0 18.0 V574.0 M632.0 18.0 V574.0 M666.0 18.0 V574.0 M700.0 18.0 V574.0 M734.0 18.0 V574.0 M768.0 18.0 V574.0 M802.0 18.0 V574.0 M836.0 18.0 V574.0 M870.0 18.0 V574.0 M904.0 18.0 V574.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0 M22.0 560.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
+              <rect x="20" y="16" width="920" height="560" rx="16" fill="#FFFDF7" stroke="#E3E0D0" stroke-width="1"/><clipPath id="quadretti2"><rect x="20.0" y="16.0" width="920.0" height="560.0" rx="16"/></clipPath><path clip-path="url(#quadretti2)" d="M54.0 18.0 V574.0 M88.0 18.0 V574.0 M122.0 18.0 V574.0 M156.0 18.0 V574.0 M190.0 18.0 V574.0 M224.0 18.0 V574.0 M258.0 18.0 V574.0 M292.0 18.0 V574.0 M326.0 18.0 V574.0 M360.0 18.0 V574.0 M394.0 18.0 V574.0 M428.0 18.0 V574.0 M462.0 18.0 V574.0 M496.0 18.0 V574.0 M530.0 18.0 V574.0 M564.0 18.0 V574.0 M598.0 18.0 V574.0 M632.0 18.0 V574.0 M666.0 18.0 V574.0 M700.0 18.0 V574.0 M734.0 18.0 V574.0 M768.0 18.0 V574.0 M802.0 18.0 V574.0 M836.0 18.0 V574.0 M870.0 18.0 V574.0 M904.0 18.0 V574.0 M22.0 50.0 H938.0 M22.0 84.0 H938.0 M22.0 118.0 H938.0 M22.0 152.0 H938.0 M22.0 186.0 H938.0 M22.0 220.0 H938.0 M22.0 254.0 H938.0 M22.0 288.0 H938.0 M22.0 322.0 H938.0 M22.0 356.0 H938.0 M22.0 390.0 H938.0 M22.0 424.0 H938.0 M22.0 458.0 H938.0 M22.0 492.0 H938.0 M22.0 526.0 H938.0 M22.0 560.0 H938.0" fill="none" stroke="#F0EDE0" stroke-width="1"/><path d="M898,16 L924,16 A16,16 0 0 1 940,32 L940,58 Z" fill="#9AC3AB"/>
               <g font-family="Schibsted Grotesk, sans-serif">
               <text x="60" y="66" font-size="18.67" font-weight="700" letter-spacing="2.4" fill="#4b473e">IL MIO QUADERNO · BLOCCO 3</text>
               <text x="60" y="105.8" font-family="Fraunces, serif" font-weight="600" font-size="35.51" fill="#33312c">La busta intera, e quello che verrà</text>
@@ -2102,7 +2256,7 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
   justify-content:center;cursor:zoom-in;padding:0;z-index:3;}
 .zoomabile>.lente:hover{background:#EEF0EA;border-color:#C9C4B8;}
 .zoomabile>.lente svg{width:19px;height:19px;display:block;}
-#velografica{position:fixed;inset:0;background:rgba(38,36,32,.93);display:none;align-items:center;
+#velografica{position:fixed;inset:0;background:#262420;display:none;align-items:center;
   justify-content:center;z-index:1200;padding:34px 26px;}
 #velografica.on{display:flex;}
 #velografica .telaio{background:#F8F8F3;border:1px solid #D9DACF;border-radius:16px;
@@ -2127,9 +2281,11 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
    Versione «gentile»: NON sposta nessun nodo (i moduli costruiti con React si romperebbero),
    marca il contenitore che c'e gia e ci appende il pulsante. */
 (function () {
-  var PIU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" '
-          + 'stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.6"/>'
-          + '<path d="M15.4 15.4 L21 21 M10.5 7.6 v5.8 M7.6 10.5 h5.8"/></svg>';
+  var PIU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          + 'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+          + '<circle cx="10" cy="10" r="6.4"/>'
+          + '<path d="M14.9 14.9 L20.6 20.6"/>'
+          + '<path d="M10 6.9 v6.2 M6.9 10 h6.2"/></svg>';
   var velo, telaio;
 
   function costruisciVelo() {
@@ -2222,6 +2378,55 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", avvia);
   else avvia();
+})();
+</script>
+
+<script>
+/* ============ IMPIANTO NUOVO 25/07/2026 - LA LENTINA SULLE FOTO ============
+   Regola di Mauro: il «+» va SOLO sulle foto che hanno definizione per essere
+   ingrandite (lato lungo >= 1400px). Le altre portano data-lente="no" e restano
+   senza pulsante e senza clic. Le mappe e le grafiche ce l'hanno sempre. */
+(function () {
+  var PIU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+          + 'stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.4"/>'
+          + '<path d="M14.9 14.9 L20.6 20.6"/><path d="M10 6.9 v6.2 M6.9 10 h6.2"/></svg>';
+  var foto = [].slice.call(document.querySelectorAll('img')).filter(function (im) {
+    var s = im.getAttribute('src') || '';
+    if (s.indexOf('logo-arte-bianca') >= 0) return false;
+    return !im.closest('#velofoto') && !im.closest('#velografica') && !im.closest('.video-anteprima');
+  });
+  for (var i = 0; i < foto.length; i++) {
+    (function (img) {
+      if (img.getAttribute('data-lente') === 'no') { img.style.cursor = 'default'; return; }
+      var host = img.closest('.mos') || img.closest('.fotoblocco') || img.closest('.fotonuda');
+      if (!host) {
+        /* nessuna classe: avvolgo direttamente l'immagine, cosi' la lentina si
+           appoggia esattamente sopra di lei senza toccare i contenitori */
+        if (!img.parentNode) return;
+        host = document.createElement('span');
+        host.className = 'zoom-foto';
+        img.parentNode.insertBefore(host, img);
+        host.appendChild(img);
+      }
+      if (!host || !host.parentNode) return;
+      if (host.parentNode.classList && host.parentNode.classList.contains('zoomabile')) return;
+      var guscio = document.createElement('div');
+      guscio.className = 'zoomabile';
+      ['filo', 'sfonda', 'fotomedia', 'fotogrande'].forEach(function (c) {
+        if (host.classList.contains(c)) guscio.classList.add(c);
+      });
+      host.parentNode.insertBefore(guscio, host);
+      guscio.appendChild(host);
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'lente';
+      b.setAttribute('data-noprint', '1');
+      b.setAttribute('aria-label', 'Ingrandisci la foto');
+      b.setAttribute('title', 'Ingrandisci');
+      b.innerHTML = PIU;
+      b.addEventListener('click', function (ev) { ev.stopPropagation(); img.click(); });
+      guscio.appendChild(b);
+    })(foto[i]);
+  }
 })();
 </script>
 </body>
