@@ -87,6 +87,9 @@ svg text.num, svg tspan.num{font-family:'Fraunces',Georgia,serif !important;font
 .gf-tappa.giu .testo{top:64px;}
 .gf-tappa h4{font-family:'Fraunces',serif;font-weight:600;font-size:15px;margin:0 0 2px;color:#262420;}
 .gf-tappa p{font-size:11.5px;color:#827F75;margin:0;line-height:1.35;}
+.tappe6{grid-template-columns:repeat(6,1fr);}
+@media (max-width:860px){.tappe6{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:520px){.tappe6{grid-template-columns:repeat(2,1fr);}}
 .gf-scala{display:flex;align-items:flex-end;gap:16px;margin:26px 4px 0;min-height:230px;}
 .gf-scala .gradino{flex:1;border-radius:14px 14px 10px 10px;border:1.5px solid;position:relative;}
 .gf-scala .npill{position:absolute;top:10px;left:10px;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #D9DACF;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:#262420;}
@@ -366,8 +369,8 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div style="padding:16px 16px 0;">
           <div style="position:relative;border-radius:8px;overflow:hidden;border:1px solid #D9DACF;">
             <!-- Illustrazione iniziale (sostituibile con una foto di Mauro) -->
-            <img loading="lazy" decoding="async" src="assets/copertina.jpg" alt="Un giovane panettiere guarda la sua prima busta paga, dietro il bancone del panificio" style="display:block;width:100%;height:auto;">
-            <div style="position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to top, rgba(38,36,32,.38), transparent);"></div>
+            <img src="assets/copertina.jpg" alt="Un giovane panettiere guarda la sua prima busta paga, dietro il bancone del panificio" style="display:block;width:100%;height:auto;">
+            
           </div>
         </div>
         <div style="padding:34px 40px 40px;">
@@ -378,7 +381,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
           <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:0 0 6px;">Che cosa scoprirai in questo modulo</h3>
           <p style="font-size:14px;color:#827F75;margin:0 0 22px;">Il percorso in sei tappe, dal primo stipendio al TFR.</p>
           <div data-noprint="1">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;"><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#DD977A;"></div><div style="width:34px;height:34px;border-radius:999px;background:#DD977A;border:2px solid #AC6144;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">1</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">La retribuzione</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#F0B783;"></div><div style="width:34px;height:34px;border-radius:999px;background:#F0B783;border:2px solid #C07F49;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">2</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Le voci della paga</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#E7A2B3;"></div><div style="width:34px;height:34px;border-radius:999px;background:#E7A2B3;border:2px solid #B6677B;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">3</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">I contributi</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#B9A6D9;"></div><div style="width:34px;height:34px;border-radius:999px;background:#B9A6D9;border:2px solid #7B66A4;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">4</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Le imposte</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#8AC5C1;"></div><div style="width:34px;height:34px;border-radius:999px;background:#8AC5C1;border:2px solid #4E918C;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">5</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">La busta paga completa</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#EBC871;"></div><div style="width:34px;height:34px;border-radius:999px;background:#EBC871;border:2px solid #BB963C;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">6</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Il TFR e oltre</div></div></div>
+            <div class="tappe6" style="display:grid;gap:12px;"><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#DD977A;"></div><div style="width:34px;height:34px;border-radius:999px;background:#AC6144;border:2px solid #AC6144;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">1</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">La retribuzione</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#F0B783;"></div><div style="width:34px;height:34px;border-radius:999px;background:#C07F49;border:2px solid #C07F49;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">2</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Le voci della paga</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#E7A2B3;"></div><div style="width:34px;height:34px;border-radius:999px;background:#B6677B;border:2px solid #B6677B;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">3</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">I contributi</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#B9A6D9;"></div><div style="width:34px;height:34px;border-radius:999px;background:#7B66A4;border:2px solid #7B66A4;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">4</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Le imposte</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#8AC5C1;"></div><div style="width:34px;height:34px;border-radius:999px;background:#4E918C;border:2px solid #4E918C;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">5</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">La busta paga completa</div></div><div style="background:#fff;border:1px solid #D9DACF;border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:100%;height:4px;background:#EBC871;"></div><div style="width:34px;height:34px;border-radius:999px;background:#BB963C;border:2px solid #BB963C;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#fff;margin:4px 0 12px;">6</div><div style="font-size:14px;font-weight:600;line-height:1.3;color:#2b2620;font-family:'Fraunces',serif;">Il TFR e oltre</div></div></div>
           </div>
         </div>
       </section>
@@ -407,7 +410,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div data-noprint="1" style="margin:30px 0 0;">
           <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:0 0 4px;">Il mese dello stipendio.</h3>
           <p style="font-size:14px;color:#827F75;margin:0 0 6px;">Dalla prima ora di lavoro all'accredito: le cinque tappe.</p>
-          <div class="gf-tempo-scorri"><div class="gf-tempo">
+          <div class="gf-tempo-scorri"><div class="gf-tempo" style="width:728px;margin:0 auto;">
             <div class="gf-tappa su" style="left:0;"><div class="testo"><h4>Lavori</h4><p>tutto il mese</p></div><div class="pill" style="background:#9AC3AB;border-color:#5C8B73;color:#24422f;">1</div></div>
             <div class="gf-tappa giu" style="left:146px;"><div class="pill" style="background:#9BBCDD;border-color:#5A82AB;color:#223c57;">2</div><div class="testo"><h4>Si elabora</h4><p>l'ufficio paghe prepara il cedolino</p></div></div>
             <div class="gf-tappa su" style="left:292px;"><div class="testo"><h4>Lo ricevi</h4><p>il tuo cedolino</p></div><div class="pill" style="background:#B9A6D9;border-color:#7B66A4;color:#3d3355;">3</div></div>
@@ -437,7 +440,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <path d="M272,190 C272,249.5 450,175.9 450,243.5 L450,269.5" fill="none" stroke="#57534a" stroke-width="2" stroke-linecap="round" marker-end="url(#i2-ink)"/>
             <path d="M788,190 C788,249.5 610,175.9 610,243.5 L610,269.5" fill="none" stroke="#57534a" stroke-width="2" stroke-linecap="round" marker-end="url(#i2-ink)"/>
             <g><rect x="380" y="272" width="300" height="158" rx="14" fill="#F0B783" stroke="#C07F49" stroke-width="1.6"/><svg x="402" y="290" width="54" height="54" viewBox="0 0 24 24"><g fill="#262420" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.307 12.161c1 .76 1.71.05.94-.79l-.08-.08a6 6 0 0 0-.52-.439c-.19-.14-.39-.26-.59-.38a8.6 8.6 0 0 0-1.519-.67a.373.373 0 0 0-.33.67c.43.29.79.66 1.2 1q.395.35.83.65zm9.687 5.449a.371.371 0 1 0-.7.25a1.12 1.12 0 0 1-.89 1.309a1.1 1.1 0 0 1-.51-.11a1.4 1.4 0 0 1-.46-.29a4 4 0 0 1-.25-.29a.8.8 0 0 1-.1-.23a.82.82 0 0 1 .08-.56c.07-.07.12-.14.18-.21a1.1 1.1 0 0 1 .31-.29a1.35 1.35 0 0 1 1.48 0a.33.33 0 0 0 .46-.47a2 2 0 0 0-1.93-.54a1.7 1.7 0 0 0-.07-.459a.38.38 0 0 0-.696-.039a.37.37 0 0 0-.013.289a.84.84 0 0 1 0 .52a2 2 0 0 0-.74.74a.6.6 0 0 1-.12 0a1 1 0 0 1-.5-.11a1.4 1.4 0 0 1-.53-.25a2 2 0 0 1-.24-.29a.6.6 0 0 1-.11-.23a1 1 0 0 1 .55-1.05a1.33 1.33 0 0 1 1.48 0a.333.333 0 0 0 .46-.48a1.89 1.89 0 0 0-1.6-.58a1.54 1.54 0 0 0-.12-.82a.372.372 0 0 0-.7.25a1 1 0 0 1-.19.85a2.3 2.3 0 0 0-.529.39a1 1 0 0 1-.18.07a1.2 1.2 0 0 1-.5-.11a1.4 1.4 0 0 1-.46-.29a2.3 2.3 0 0 1-.25-.29a.56.56 0 0 1-.1-.24a.94.94 0 0 1 .57-1.049a1.35 1.35 0 0 1 1.48 0a.33.33 0 0 0 .44-.47a2.32 2.32 0 0 0-2.36-.44a1.83 1.83 0 0 0-1 .79a2 2 0 0 0-.359 1.39c.035.21.106.413.21.6q.214.333.5.61c.29.25.637.428 1.01.519q.229.07.47.08a2 2 0 0 0 0 .49a1.7 1.7 0 0 0 .22.59q.203.346.499.62a2.53 2.53 0 0 0 1.73.599a.2.2 0 0 1 0 .08c.033.212.108.416.22.6c.135.226.303.432.499.61c.286.251.629.43 1 .52a2.05 2.05 0 0 0 1.119 0a2.1 2.1 0 0 0 1.25-1.05a1.81 1.81 0 0 0-.01-1.53m-1.2-11.255q.204.04.4.11c.69.28 1.07-.45.57-.77a3 3 0 0 0-.8-.33a5.3 5.3 0 0 0-1.9-.06a7.3 7.3 0 0 1-1.669-.08l-2.049-.77q-.711-.298-1.47-.45a.31.31 0 0 0-.279.36a.32.32 0 0 0 .29.29s.12.06.23.12c.62.32 1.929 1.14 2.819 1.59c.365.209.77.338 1.19.38l1.129-.23a5.3 5.3 0 0 1 1.539-.16m13.115-2.479a.38.38 0 0 0-.52-.13l-1.78 1a6 6 0 0 1-.999.46a1.9 1.9 0 0 1-.63.09a8 8 0 0 1-1-.08a7 7 0 0 1-.869-.21c-.42-.14-.82-.32-1.24-.44a3.3 3.3 0 0 0-.999-.14q-.407.018-.79.16c-.353.117-.69.282-1 .49c-.25.15-2.548 2.278-2.768 2.508a6 6 0 0 0-1 1.23c-.192.34-.302.72-.32 1.11a1.51 1.51 0 0 0 .46 1.239a2 2 0 0 0 1.69.38c.516-.104 1-.33 1.409-.66q.614-.488 1.14-1.07a5.2 5.2 0 0 0 1.599.39q.39.045.78 0q.385-.056.75-.2a4.5 4.5 0 0 0 1.469-1a.32.32 0 0 0 .08-.46a.33.33 0 0 0-.46-.08a5.4 5.4 0 0 1-1.44.39l-.87.15c-.2 0-.38.07-.58.08a6 6 0 0 1-.939 0a.2.2 0 0 0 0-.11a.32.32 0 0 0-.46 0q-.71.705-1.519 1.29a2.5 2.5 0 0 1-1.08.42a1.2 1.2 0 0 1-.78-.14a.5.5 0 0 1-.249-.54c.042-.228.13-.446.26-.64q.375-.524.86-.95c.49-.489 1-.999 1.519-1.488a8 8 0 0 1 1.05-.82q.29-.195.61-.34a1.87 1.87 0 0 1 1.249-.09c.41.09.8.24 1.21.36q.537.135 1.089.19q.54.03 1.08 0c.32-.01.637-.07.939-.18a7.3 7.3 0 0 0 1.14-.6l1.729-1.09a.37.37 0 0 0 .18-.48"/><path d="M18.56 14a4 4 0 0 0-.219-.51a7.7 7.7 0 0 0-1-1.349l-1.07-1.22a.33.33 0 0 0-.529.39l.79 1.42q.39.624.68 1.3c.121.252.202.522.24.8a1.25 1.25 0 0 1-.25.999c-.14.16-.32.28-.52.35a1 1 0 0 0-.05-.11a7.6 7.6 0 0 0-.7-.89l-1.44-1.63a.374.374 0 0 0-.62.42l1.12 1.91q.286.4.53.83q.13.221.2.47a.58.58 0 0 1-.14.69a1 1 0 0 1-.5.219v-.09a3.4 3.4 0 0 0-.39-.64c-.24-.29-.47-.57-.73-.84s-.499-.53-.769-.779a.33.33 0 0 0-.46-.05a.34.34 0 0 0-.05.47c.16.24.3.47.44.72s.39.73.57 1.11l.28.679l-.14.24a.93.93 0 0 1-.61.42a1 1 0 0 1-.72-.08a.37.37 0 0 0-.51.12a.38.38 0 0 0 .12.52a1.72 1.72 0 0 0 1.16.42a2 2 0 0 0 1.85-1.12q.045-.148.06-.3a2 2 0 0 0 .999-.19a1.63 1.63 0 0 0 .81-1.7a2.14 2.14 0 0 0 1-.48a2.3 2.3 0 0 0 .749-1.629a3.7 3.7 0 0 0-.18-.89m5.428-1.229a.37.37 0 0 0-.45-.27c-.61.07-1.2.09-1.79.19a7 7 0 0 0-1.179.3a6 6 0 0 0-1.25.65c-.819.34-.33 1 .44.78l.93-.19l.7-.17l.69-.22c.55-.19 1.09-.4 1.639-.62a.37.37 0 0 0 .27-.45"/></g></svg><text x="472" y="318" font-family="Fraunces, serif" font-weight="600" font-size="32.42" fill="#262420">CCNL</text><text x="472" y="341" font-size="17.35" fill="#4b473e">firmato dalle due parti</text><text x="404" y="378" font-size="17.35" fill="#33312c">minimi salariali · orario · straordinari</text><text x="404" y="400" font-size="17.35" fill="#33312c">ferie · mensilità aggiuntive</text></g>
-            <g transform="rotate(-1.4 800 330)"><text x="740" y="322" font-size="17.35" fill="#57534a">vale per tutto il settore:</text><text x="740" y="341.4" font-size="17.35" fill="#57534a">sotto i minimi non si può scendere</text></g>
+            <g><text x="740" y="322" font-size="17.35" fill="#57534a">vale per tutto il settore:</text><text x="740" y="341.4" font-size="17.35" fill="#57534a">sotto i minimi non si può scendere</text></g>
             <path d="M736,329 L682.5,329" fill="none" stroke="#57534a" stroke-width="1.6" stroke-linecap="round" marker-end="url(#i2-ambra)"/>
             <text x="530" y="462" text-anchor="middle" font-size="17.35" font-weight="700" letter-spacing="1.8" fill="#4b473e">LA RETRIBUZIONE SI COSTRUISCE SU TRE LIVELLI</text>
             <path d="M468,478 C438,479.3 210,449.5 210,489.5 L210,515.5" fill="none" stroke="#57534a" stroke-width="2" stroke-linecap="round" marker-end="url(#i2-ink)"/>
@@ -485,7 +488,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <div class="gradino" style="height:228px;background:#E7A2B3;border-color:#B6677B;"><div class="npill">1º</div></div>
           </div>
           <div class="gf-scala-eti">
-            <div><h4>4º livello</h4><p>si comincia qui</p></div>
+            <div><h4>4º livello</h4><p>il livello di Marco</p></div>
             <div><h4>3º livello</h4><p>più autonomia</p></div>
             <div><h4>2º livello</h4><p>più responsabilità</p></div>
             <div><h4>1º livello</h4><p>minimo più alto</p></div>
@@ -527,7 +530,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div class="kicker" style="background:rgba(226,158,175,.22);color:#93455a;">Le voci · Mensilità aggiuntive</div>
         <h2>Tredicesima, quattordicesima, fringe benefit.</h2>
         <p class="t">Dicembre è il mese preferito dei lavoratori dipendenti, e non solo per le feste: arriva la <strong>tredicesima</strong>, una mensilità intera in più. Non è un regalo: è retribuzione che il lavoratore <strong>matura un poco ogni mese</strong> - un dodicesimo a mensilità - e che l'azienda mette da parte per pagarla tutta insieme prima di Natale. Chi ha lavorato solo sei mesi, riceverà sei dodicesimi.</p>
-        <p class="t">Alcuni CCNL - per esempio quello del commercio e diversi contratti dell'alimentare - prevedono anche la <strong>quattordicesima</strong>, di solito pagata a giugno, all'inizio dell'estate. Il contratto di Marco prevede <strong class="hl">tredici mensilità</strong>: un dettaglio che ritroverai nei calcoli, perché quando si stima il reddito di un anno intero bisogna moltiplicare la paga mensile per tredici, non per dodici.</p>
+        <p class="t">Alcuni CCNL - per esempio quello del commercio e diversi contratti dell'alimentare - prevedono anche la <strong>quattordicesima</strong>, di solito pagata tra giugno e luglio, all'inizio dell'estate. Il contratto di Marco prevede <strong class="hl">tredici mensilità</strong>: un dettaglio che ritroverai nei calcoli, perché quando si stima il reddito di un anno intero bisogna moltiplicare la paga mensile per tredici, non per dodici.</p>
         <p class="t">Accanto al denaro, il datore può riconoscere compensi <strong>in natura</strong>: i <strong>fringe benefit</strong>. Sono beni e servizi che non passano per il portafoglio ma hanno un valore reale: i buoni pasto, l'auto aziendale, il telefono, i buoni spesa. Entro certi limiti di valore fissati dalla legge non pagano imposte: per questo le aziende li usano volentieri per integrare la retribuzione. Un supermercato può dare ai cassieri i buoni pasto; un'impresa edile può dare al capocantiere il furgone anche per l'uso personale; una software house può offrire ai dipendenti l'abbonamento ai mezzi.</p>
         <p class="t">Con questa card conosci tutte le voci <strong>positive</strong> della busta: quelle che costruiscono la retribuzione lorda. Il primo blocco si chiude con una mappa d'insieme: il viaggio che quei soldi devono ancora fare prima di arrivare in tasca.</p>
       </section>
@@ -537,10 +540,11 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div class="wm" style="color:rgba(187,150,60,.30);">06</div>
         <div class="kicker" style="background:rgba(235,200,113,.3);color:#7a611f;">Il quadro</div>
         <h2>Dal lordo al netto: la mappa del viaggio.</h2>
-        <p class="t">La retribuzione lorda di Marco è 2.310,71 euro, ma sul suo conto ne arriveranno 1.928,45. Dove finisce la differenza? Non sparisce: fa due fermate obbligatorie - i <strong>contributi</strong> e le <strong>imposte</strong> - che sono l'argomento dei prossimi due blocchi. Eccola qui sotto, disegnata come una mappa concettuale: ogni freccia è un passaggio, i cerchietti dicono se si aggiunge o si toglie.</p>
-        <div style="background:#ECEBE4;border:1px solid #DDDCD2;border-radius:14px;padding:18px;margin:0 0 22px;">
+        <p class="t">La retribuzione lorda di Marco è 2.310,71 euro, ma sul suo conto ne arriveranno 1.928,45. Dove finisce la differenza? Non sparisce: fa due fermate obbligatorie - i <strong>contributi</strong> e le <strong>imposte</strong> - che sono l'argomento dei prossimi due blocchi. Il disegno qui sotto segue il viaggio di quei soldi dall'alto verso il basso.</p>
+        <p class="t">Si parte in alto dalle <strong>voci fisse</strong> e dalle <strong>voci variabili</strong>: sommate, danno la <strong>retribuzione lorda</strong>. Da lì si scende lungo la linea centrale, e ogni volta che incontri un cerchietto succede qualcosa: col segno <strong>meno</strong> una somma si toglie, col segno <strong>più</strong> si aggiunge. Il primo meno sono i contributi INPS; quello che resta è l'<strong class="hl">imponibile fiscale</strong>, la base su cui si calcolano le imposte. Qui la strada fa una deviazione a destra: sull'imponibile si calcola l'IRPEF con gli scaglioni, se ne tolgono le detrazioni, e l'<strong>IRPEF netta</strong> che ne esce torna sulla linea centrale per essere sottratta. Poi si tolgono le addizionali di Regione e Comune, si aggiungono le voci integrative, e in fondo arriva il <strong class="hl">netto in busta</strong>. I numeri da 1 a 5 accanto ai riquadri sono le tappe del conto, nell'ordine in cui le fa l'ufficio paghe; le scritte senza riquadro sono appunti a margine.</p>
+        <div style="margin:0 0 22px;">
 <svg class="mappa" viewBox="0 0 1160 1640" xmlns="http://www.w3.org/2000/svg" role="img"
-     aria-label="Mappa concettuale: come si arriva dal lordo al netto in una busta paga">
+     aria-label="Il viaggio dal lordo al netto in una busta paga">
 
   <defs>
     <!-- punte di freccia disegnate a mano: la coda rientra, come tracciate a pennino -->
@@ -584,13 +588,12 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
 
   <!-- ============ IL FOGLIO ============ -->
   <rect x="20" y="20" width="1120" height="1600" rx="18" fill="#FFFFFF" stroke="#D9DACF" stroke-width="1.4"/>
-  <rect x="20" y="20" width="1120" height="1600" rx="18" filter="url(#grana)"/>
   <!-- l'angolo piegato, come sul cartellino di famiglia -->
   <path d="M1096,20 L1122,20 A18,18 0 0 1 1140,38 L1140,64 Z" fill="#9AC3AB"/>
   <path d="M1096,20 L1140,64" stroke="#5C8B73" stroke-width="1" fill="none"/>
 
   <!-- ============ TESTATA ============ -->
-  <text x="70" y="92"  font-size="16.95" font-weight="700" letter-spacing="2.6" class="muto">MODULO 1 · MAPPA CONCETTUALE</text>
+  <text x="70" y="92"  font-size="16.95" font-weight="700" letter-spacing="2.6" class="muto">MODULO 1 · DAL LORDO AL NETTO</text>
   <text x="70" y="136.1" font-size="39.37" font-weight="600" class="serif">La busta paga, come funziona</text>
   <text x="70" y="164.1" font-size="19.77" class="muto">Ogni freccia è un passaggio. I cerchietti dicono se si aggiunge o si toglie.</text>
 
@@ -622,7 +625,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
   </g>
 
   <!-- appunto a matita, leggermente storto -->
-  <g transform="rotate(-1.4 790 255)">
+  <g>
     <text x="790" y="250" font-size="19.11" class="ambra">gli importi li decide</text>
     <text x="790" y="271.4" font-size="19.11" class="ambra">il contratto collettivo</text>
   </g>
@@ -663,7 +666,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
   <circle cx="276" cy="722" r="15" fill="#ffffff" stroke="#5A82AB" stroke-width="1.8"/>
   <text x="276" y="727" font-size="19.77" font-weight="700" text-anchor="middle" class="serif azz">2</text>
 
-  <g transform="rotate(-1.2 100 748)">
+  <g>
     <text x="95" y="748" font-size="19.11" class="ambra">da qui in poi</text>
     <text x="95" y="769.4" font-size="19.11" class="ambra">comanda il fisco</text>
   </g>
@@ -678,7 +681,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
     <text x="890" y="842" font-size="23.72" font-weight="600" text-anchor="middle" class="serif azz">IRPEF LORDA</text>
     <text x="890" y="864.1" font-size="19.77" text-anchor="middle" class="muto">l'imposta, calcolata per scaglioni</text>
     <text x="890" y="890.1" font-size="19.77" text-anchor="middle" class="num">23 % · fino a 28.000</text>
-    <text x="890" y="912.3" font-size="19.77" text-anchor="middle" class="num">35 % · da 28.001 a 50.000</text>
+    <text x="890" y="912.3" font-size="19.77" text-anchor="middle" class="num">33 % · da 28.001 a 50.000</text>
     <text x="890" y="934.4" font-size="19.77" text-anchor="middle" class="num">43 % · oltre 50.000</text>
   </g>
   <circle cx="676" cy="832" r="15" fill="#ffffff" stroke="#5A82AB" stroke-width="1.8"/>
@@ -739,7 +742,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
   <g class="scatola">
     <rect x="560" y="1290" width="330" height="72" rx="14" fill="#9AC3AB" stroke="#5C8B73" stroke-width="1.6"/>
     <text x="582" y="1320" font-size="21.08" font-weight="700" class="verde">Voci integrative</text>
-    <text x="582" y="1342" font-size="19.11" class="muto">ANF e somme non tassate, aggiunte alla fine</text>
+    <text x="582" y="1342" font-size="19.11" class="muto">trattamento integrativo e somme esenti</text>
   </g>
   <path class="lega-verde" d="M560,1326 C534.3,1326 530.1,1324 493.5,1324 L467.5,1324" marker-end="url(#p-verde)"/>
 
