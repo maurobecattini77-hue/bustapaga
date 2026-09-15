@@ -213,6 +213,30 @@ blockquote.def p.q{ font-size:24px; }
 .sfonda{ max-width:1036px; margin-left:auto; margin-right:auto; }
 .fotoriga{ max-width:880px; margin-left:auto; margin-right:auto; }
 
+/* ---------- LE COMPOSIZIONI DI FOTO (dal campionario approvato il 13/08/2026) ----------
+   Selettori «discendenti»: il copione della lente infila ogni foto in due gusci. */
+/* 2.1 coppia affiancata, orizzontali */
+.mos{ border:1px solid #D9DACF; border-radius:8px; overflow:hidden; background:#F8F8F3; display:grid; gap:4px; margin:26px 0; }
+.mos img{ display:block; width:100%; height:100%; object-fit:cover; min-width:0; cursor:zoom-in; }
+.mos.g2{ grid-template-columns:1fr 1fr; } .mos.g2 img{ aspect-ratio:4/3; }
+/* P3 il testo che avvolge la foto, col capolettera */
+.avvolge::after{ content:""; display:block; clear:both; }
+.avvolge .scatto{ float:right; width:300px; margin:6px 0 18px 28px; border-radius:8px; overflow:hidden; border:1px solid #D9DACF; }
+.avvolge .scatto img{ display:block; width:100%; height:auto; cursor:zoom-in; }
+.avvolge .cap::first-letter{ font-family:'Fraunces',serif; font-weight:600; font-size:58px; line-height:.82; float:left; margin:6px 11px 0 0; color:#AC6144; }
+/* T1-T2 il testo che incornicia */
+.inc::after{ content:""; display:block; clear:both; }
+.blk{ border:1px solid #D9DACF; border-radius:8px; overflow:hidden; background:#F8F8F3; display:grid; gap:4px; }
+.blk img{ display:block; width:100%; height:100%; object-fit:cover; min-width:0; cursor:zoom-in; }
+.blk.dx{ float:right; margin:6px 0 20px 30px; }
+.blk.sx{ float:left; margin:6px 30px 20px 0; }
+.blk.w260{ width:260px; }
+.blk.solo img{ aspect-ratio:4/3; }
+@media (max-width:700px){
+  .blk.dx, .blk.sx{ float:none; width:100% !important; max-width:360px; margin:0 auto 20px; }
+  .avvolge .scatto{ float:none; width:100%; max-width:340px; margin:0 auto 20px; }
+}
+
 /* ---------- LA LENTE NUOVA ---------- */
 .zoomabile{ position:relative; }
 .zoomabile > .lente{
@@ -542,6 +566,10 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <h2>Tredicesima, quattordicesima, fringe benefit.</h2>
         <p class="t">Dicembre è il mese preferito dei lavoratori dipendenti, e non solo per le feste: arriva la <strong>tredicesima</strong>, una mensilità intera in più. Non è un regalo: è retribuzione che il lavoratore <strong>matura un poco ogni mese</strong> - un dodicesimo a mensilità - e che l'azienda mette da parte per pagarla tutta insieme prima di Natale. Chi ha lavorato solo sei mesi, riceverà sei dodicesimi.</p>
         <p class="t">Alcuni CCNL - per esempio quello del commercio e diversi contratti dell'alimentare - prevedono anche la <strong>quattordicesima</strong>, di solito pagata tra giugno e luglio, all'inizio dell'estate. Il contratto di Marco prevede <strong class="hl">tredici mensilità</strong>: un dettaglio che ritroverai nei calcoli, perché quando si stima il reddito di un anno intero bisogna moltiplicare la paga mensile per tredici, non per dodici.</p>
+        <div class="mos g2 filo" data-noprint="1">
+          <img loading="lazy" decoding="async" src="assets/c05-tredicesima.jpg" style="object-position:40% center;" alt="Il bancone di un forno di paese a dicembre, con i panettoni incartati nella carta e una cesta di grissini">
+          <img loading="lazy" decoding="async" src="assets/c05-quattordicesima.jpg" alt="Una spiaggia della Liguria un mattino di luglio, con gli ombrelloni ancora chiusi">
+        </div>
         <p class="t">Accanto al denaro, il datore può riconoscere compensi <strong>in natura</strong>: i <strong>fringe benefit</strong>. Sono beni e servizi che non passano per il portafoglio ma hanno un valore reale: i buoni pasto, l'auto aziendale, il telefono, i buoni spesa. Entro certi limiti di valore fissati dalla legge non pagano imposte: per questo le aziende li usano volentieri per integrare la retribuzione. Un supermercato può dare ai cassieri i buoni pasto; un'impresa edile può dare al capocantiere il furgone anche per l'uso personale; una software house può offrire ai dipendenti l'abbonamento ai mezzi.</p>
         <div data-noprint="1" style="margin:30px 0 30px;">
           <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:0 0 4px;">Tre voci in più.</h3>
@@ -851,7 +879,8 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <g><rect x="0" y="170" width="500" height="150" rx="14" fill="#ffffff" stroke="#eccfd8" stroke-width="1.6"/><svg x="22" y="192" width="50" height="50" viewBox="0 0 24 24"><g fill="none"><path fill="#c2f3ff" d="M9.556 21.568a4.305 4.305 0 1 0 0-8.61a4.305 4.305 0 0 0 0 8.61"/><path fill="#e3e3e3" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M10.991 5.783a2.392 2.392 0 1 0 0-4.783a2.392 2.392 0 0 0 0 4.783m1.435 3.348a1.435 1.435 0 0 0-2.87 0v7.654a1.435 1.435 0 0 0 1.435 1.435h4.305a.48.48 0 0 1 .406.224l1.829 2.928a1.435 1.435 0 0 0 2.433-1.521l-1.829-2.928a3.33 3.33 0 0 0-2.839-1.573h-2.392a.48.48 0 0 1-.478-.479z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M14.465 20.237a5.74 5.74 0 1 1-6.643-8.448"/></g></svg><text x="94" y="218" font-family="Fraunces, serif" font-weight="600" font-size="19" fill="#262420">Invalidità permanente</text><text x="94" y="246" font-size="13.5" fill="#33312c">se l’infortunio lascia conseguenze per sempre,</text><text x="94" y="266" font-size="13.5" fill="#33312c">una rendita per tutta la vita</text></g>
             <g><rect x="520" y="170" width="500" height="150" rx="14" fill="#ffffff" stroke="#eccaa4" stroke-width="1.6"/><svg x="542" y="192" width="50" height="50" viewBox="0 0 24 24"><g fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round"><path d="M14.06 1.957h-.888a4.78 4.78 0 0 0-4.742 4.15L6.561 20.13"/><path fill="gray" d="M8.06 20.785a.96.96 0 0 0-.908-.655h-1.49a.96.96 0 0 0-.908.655l-.528 1.586A.478.478 0 0 0 4.68 23h3.455a.48.48 0 0 0 .454-.63z"/><path d="M7.2 15.348h9.254a.99.99 0 0 1 .97.836l.461 2.99"/><path fill="gray" d="M17.885 23a1.913 1.913 0 1 0 0-3.826a1.913 1.913 0 0 0 0 3.826m1.913-21.043A.956.956 0 0 0 18.842 1h-3.826a.957.957 0 0 0 0 1.913h3.826a.956.956 0 0 0 .956-.956"/></g></svg><text x="614" y="218" font-family="Fraunces, serif" font-weight="600" font-size="19" fill="#262420">Malattia professionale</text><text x="614" y="246" font-size="13.5" fill="#33312c">quando è il lavoro stesso, negli anni, a far</text><text x="614" y="266" font-size="13.5" fill="#33312c">ammalare: assistenza e prestazioni economiche</text></g>
             </g></svg></div>
-        <p class="t">Nota la differenza importante: il premio INAIL <strong class="hl">è interamente a carico del datore di lavoro</strong>. Nella busta paga di Marco non troverai nessuna trattenuta INAIL: il fornaio paga l'assicurazione, e paga di più se il lavoro è più rischioso - l'aliquota di un impiegato che sta alla scrivania è molto più bassa di quella di chi lavora ogni notte con forni a duecentocinquanta gradi e impastatrici in movimento. Per il panificio è un costo; per Marco è la certezza che, se succede qualcosa, non resta solo.</p>
+        <div class="avvolge"><div class="scatto" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c09-forno.jpg" alt="Il laboratorio di un panificio: il forno aperto col pane che cuoce, la pala di legno e l'impastatrice"></div>
+        <p class="t cap">Nota la differenza importante: il premio INAIL <strong class="hl">è interamente a carico del datore di lavoro</strong>. Nella busta paga di Marco non troverai nessuna trattenuta INAIL: il fornaio paga l'assicurazione, e paga di più se il lavoro è più rischioso - l'aliquota di un impiegato che sta alla scrivania è molto più bassa di quella di chi lavora ogni notte con forni a duecentocinquanta gradi e impastatrici in movimento. Per il panificio è un costo; per Marco è la certezza che, se succede qualcosa, non resta solo.</p></div>
       
         <div class="shelfc" style="--tn:#f9efea;--cp:#AC6144;--et:#8a4a30;"><div class="shelfeti">Da ricordare</div><p>L'INAIL protegge la persona, e il premio lo paga per intero il datore di lavoro: in busta non ne trovi traccia.</p></div>
       </section>
@@ -933,10 +962,12 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div class="wm" style="color:rgba(182,103,123,.30);">13</div>
         <div class="kicker" style="background:rgba(226,158,175,.22);color:#93455a;">Le imposte · Le addizionali</div>
         <h2>Le addizionali: la parte di Regione e Comune.</h2>
+        <div class="inc"><div class="blk solo dx w260" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c13-alba.jpg" alt="Una piazza del centro storico di Alba, con i portici e le torri medievali"></div>
         <p class="t">L'IRPEF non finisce tutta a Roma. Sopra l'imposta nazionale si "appoggiano" due piccole imposte locali, calcolate sullo stesso imponibile: l'<strong>addizionale regionale</strong>, decisa da ciascuna Regione, e l'<strong>addizionale comunale</strong>, decisa dal Comune di residenza. Servono a finanziare quello che Regione e Comune fanno ogni giorno - dalla sanità ai servizi locali - e cambiano da luogo a luogo: due colleghi con lo stesso stipendio, uno residente ad Alba e uno a Torino, pagano addizionali diverse.</p>
+        <div class="blk solo sx w260" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c13-torino.jpg" alt="I portici di Torino al mattino presto, con le serrande dei negozi ancora abbassate"></div>
         <p class="t">Le addizionali hanno una regola tutta loro, che sorprende sempre: si calcolano sul reddito <strong class="hl">dell'anno precedente</strong>, e si pagano <strong>a rate</strong> nell'anno successivo, spalmate sulle mensilità per non pesare troppo. Nella busta di marzo di Marco ci sono quindi le rate delle addizionali calcolate sul suo reddito dell'anno scorso: <strong>44,36 euro</strong> di regionale (Piemonte) e <strong>10,28 euro</strong> di comunale (Alba).</p>
         <p class="t">E le buone notizie? Esiste anche una voce che <strong>si aggiunge</strong> invece di togliere: la <strong>somma integrativa del taglio del cuneo fiscale</strong>. Chi guadagna fino a 20.000 euro l'anno riceve in busta una piccola percentuale del proprio reddito, su cui non paga né contributi né tasse; sopra i 20.000 euro lo stesso aiuto arriva sotto forma di detrazione, quella che hai visto nella card 12. Per i figli, invece, c'è l'Assegno Unico pagato dall'INPS che hai visto nella card 08: arriva sul conto, fuori dalla busta. A Marco la somma integrativa non spetta: guadagna più di 20.000 euro l'anno, e il taglio del cuneo lo riceve già come detrazione.</p>
-        <p class="t">Con questo, il viaggio delle trattenute è completo: contributi, IRPEF, addizionali. È ora di rimettere insieme tutti i pezzi e leggere, finalmente, <strong>la busta paga intera</strong>.</p>
+        <p class="t">Con questo, il viaggio delle trattenute è completo: contributi, IRPEF, addizionali. È ora di rimettere insieme tutti i pezzi e leggere, finalmente, <strong>la busta paga intera</strong>.</p></div>
         <div class="shelfc" style="--tn:#faf4e2;--cp:#BB963C;--et:#7a611f;"><div class="shelfeti"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#BB963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:-1px;"><path d="M10.24 3.957 1.9 17.88a2 2 0 0 0 1.71 3.02h16.78a2 2 0 0 0 1.71-3.02L13.76 3.957a2 2 0 0 0-3.52 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Attenzione</div><p>Le addizionali di quest'anno si calcolano sul reddito dell'anno scorso e arrivano a rate: possono cambiare anche se lo stipendio è rimasto uguale.</p></div>
       </section>
 
@@ -1035,10 +1066,11 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div class="wm" style="color:rgba(172,97,68,.30);">17</div>
         <div class="kicker" style="background:rgba(221,151,122,.18);color:#8a4a30;">Il TFR e oltre · L'anno fiscale</div>
         <h2>Il conguaglio, la CU e il 730.</h2>
+        <div class="inc"><div class="blk solo dx w260" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c17-documenti.jpg" alt="Un tavolo di cucina davanti alla finestra sulle vigne: la cartellina dei documenti, la calcolatrice, gli occhiali e un caffè"></div>
         <p class="t">Le trattenute che hai visto finora sono, in fondo, delle <strong>previsioni</strong>: ogni mese il datore calcola l'IRPEF come se quel mese si ripetesse uguale tutto l'anno. Ma l'anno vero è fatto di straordinari che vanno e vengono, premi, aumenti. Per questo, con l'ultima busta dell'anno, il datore fa il <strong class="hl">conguaglio</strong>: ricalcola l'imposta sull'intero reddito effettivo e sistema la differenza - se ha trattenuto troppo la restituisce, se ha trattenuto poco la recupera.</p>
         <p class="t">Entro marzo, poi, il datore consegna a Marco la <strong>CU</strong> - la Certificazione Unica: il riassunto ufficiale di tutto l'anno. Reddito complessivo, contributi versati, IRPEF trattenuta, detrazioni riconosciute, giorni di lavoro: una pagina che fotografa dodici buste. La CU va conservata con cura, perché è la base della <strong>dichiarazione dei redditi</strong>.</p>
         <p class="t">Ed è qui che il lavoratore può recuperare quello che la busta non sa: le spese mediche, l'affitto degli studenti fuori sede, le spese di istruzione, il veterinario. Col <strong>modello 730</strong> - oggi in gran parte precompilato dall'Agenzia delle Entrate - queste spese diventano detrazioni, e spesso si trasformano in un <strong>rimborso</strong> che arriva direttamente in busta paga, a luglio. Il cerchio si chiude dove è cominciato: nel cedolino.</p>
-        <p class="t">Alla dichiarazione dei redditi dedicheremo un intero modulo più avanti: per ora ti basta sapere che busta paga, CU e 730 sono <strong>tre capitoli della stessa storia</strong>.</p>
+        <p class="t">Alla dichiarazione dei redditi dedicheremo un intero modulo più avanti: per ora ti basta sapere che busta paga, CU e 730 sono <strong>tre capitoli della stessa storia</strong>.</p></div>
       </section>
 
       <!-- ===== CARD 18 · Chiusura ===== -->
