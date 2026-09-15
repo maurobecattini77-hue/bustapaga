@@ -232,6 +232,14 @@ blockquote.def p.q{ font-size:24px; }
 .blk.sx{ float:left; margin:6px 30px 20px 0; }
 .blk.w260{ width:260px; }
 .blk.solo img{ aspect-ratio:4/3; }
+/* la cartina del Piemonte (card 13): un disegno, quindi senza cornice */
+.blk.cartina{ border:0; border-radius:0; background:transparent; overflow:visible; }
+.blk.cartina img{ height:auto; object-fit:contain; }
+/* le illustrazioni Recraft: senza cornice e senza fondo (verdetto del 14/08/2026) */
+.ill{ border:0; background:transparent; }
+.ill img{ display:block; width:100%; height:auto; border:0; background:transparent; }
+.ill.dx{ float:right; width:230px; margin:4px 0 14px 28px; }
+@media (max-width:700px){ .ill.dx{ float:none; width:70%; max-width:260px; margin:0 auto 18px; } }
 @media (max-width:700px){
   .blk.dx, .blk.sx{ float:none; width:100% !important; max-width:360px; margin:0 auto 20px; }
   .avvolge .scatto{ float:none; width:100%; max-width:340px; margin:0 auto 20px; }
@@ -964,7 +972,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <h2>Le addizionali: la parte di Regione e Comune.</h2>
         <div class="inc"><div class="blk solo dx w260" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c13-alba.jpg" alt="Una piazza del centro storico di Alba, con i portici e le torri medievali"></div>
         <p class="t">L'IRPEF non finisce tutta a Roma. Sopra l'imposta nazionale si "appoggiano" due piccole imposte locali, calcolate sullo stesso imponibile: l'<strong>addizionale regionale</strong>, decisa da ciascuna Regione, e l'<strong>addizionale comunale</strong>, decisa dal Comune di residenza. Servono a finanziare quello che Regione e Comune fanno ogni giorno - dalla sanità ai servizi locali - e cambiano da luogo a luogo: due colleghi con lo stesso stipendio, uno residente ad Alba e uno a Torino, pagano addizionali diverse.</p>
-        <div class="blk solo sx w260" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c13-torino.jpg" alt="I portici di Torino al mattino presto, con le serrande dei negozi ancora abbassate"></div>
+        <div class="blk sx w260 cartina" data-noprint="1"><img loading="lazy" decoding="async" src="assets/c13-piemonte.png" alt="Cartina del Piemonte: la Regione, con Torino capoluogo e Alba, il Comune di Marco"></div>
         <p class="t">Le addizionali hanno una regola tutta loro, che sorprende sempre: si calcolano sul reddito <strong class="hl">dell'anno precedente</strong>, e si pagano <strong>a rate</strong> nell'anno successivo, spalmate sulle mensilità per non pesare troppo. Nella busta di marzo di Marco ci sono quindi le rate delle addizionali calcolate sul suo reddito dell'anno scorso: <strong>44,36 euro</strong> di regionale (Piemonte) e <strong>10,28 euro</strong> di comunale (Alba).</p>
         <p class="t">E le buone notizie? Esiste anche una voce che <strong>si aggiunge</strong> invece di togliere: la <strong>somma integrativa del taglio del cuneo fiscale</strong>. Chi guadagna fino a 20.000 euro l'anno riceve in busta una piccola percentuale del proprio reddito, su cui non paga né contributi né tasse; sopra i 20.000 euro lo stesso aiuto arriva sotto forma di detrazione, quella che hai visto nella card 12. Per i figli, invece, c'è l'Assegno Unico pagato dall'INPS che hai visto nella card 08: arriva sul conto, fuori dalla busta. A Marco la somma integrativa non spetta: guadagna più di 20.000 euro l'anno, e il taglio del cuneo lo riceve già come detrazione.</p>
         <p class="t">Con questo, il viaggio delle trattenute è completo: contributi, IRPEF, addizionali. È ora di rimettere insieme tutti i pezzi e leggere, finalmente, <strong>la busta paga intera</strong>.</p></div>
@@ -1192,7 +1200,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">Come cresce, esattamente</h3>
             <p style="font-size:18px;line-height:1.75;margin:0 0 16px;color:#33312c;">Nella lezione hai visto la regola base: ogni anno si accantona la retribuzione utile divisa per <strong>13,5</strong>. Ma il TFR lasciato in azienda non resta fermo: ogni 31 dicembre il montante accumulato si <strong>rivaluta</strong> dell'1,5 % fisso più il 75 % dell'inflazione dell'anno. Con l'inflazione al 2 %, per esempio, la rivalutazione è 1,5 + 1,5 = 3 %.</p>
-            <div style="margin:6px 0 22px;background:#fff;border:1px solid #E9E7DD;border-top:3px solid #BB963C;border-radius:16px;padding:24px 26px;">
+            <div class="grid2" style="display:grid;grid-template-columns:1fr 250px;gap:30px;align-items:center;margin:6px 0 22px;"><div style="margin:0;background:#fff;border:1px solid #E9E7DD;border-top:3px solid #BB963C;border-radius:16px;padding:24px 26px;">
               <div style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#57534A;margin-bottom:10px;">Il gruzzolo di Marco, anno per anno</div>
               <div style="display:grid;gap:7px;font-size:15.5px;color:#33312c;">
                 <div style="display:flex;justify-content:space-between;gap:14px;"><span>Quota accantonata ogni anno (30.039,23 ÷ 13,5)</span><strong>€ 2.225,13</strong></div>
@@ -1201,6 +1209,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
                 <div style="display:flex;justify-content:space-between;gap:14px;"><span>Dopo 20 anni</span><strong>circa € 59.800</strong></div>
               </div>
             </div>
+            <div class="ill" data-noprint="1"><img loading="lazy" decoding="async" src="assets/app01-salvadanaio.png" alt="Un salvadanaio di terracotta a forma di maialino, con tre monete accanto"></div></div>
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">La scelta dei sei mesi</h3>
             <p style="font-size:18px;line-height:1.75;margin:0 0 16px;color:#33312c;">Entro <strong>sei mesi</strong> dall'assunzione ogni lavoratore deve decidere dove far maturare il proprio TFR. Se non sceglie, scatta il <strong>silenzio-assenso</strong>: il TFR va automaticamente al fondo pensione di categoria. Le due strade:</p>
             <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px;">
@@ -1308,7 +1317,8 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:20px;line-height:1.4;letter-spacing:-.2px;color:#7c7268;margin:0 0 26px;">Senza busta paga non manca solo un foglio: manca tutto quello che c'è scritto sopra.</p>
             
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">Un patto senza firma</h3>
-            <p style="font-size:18px;line-height:1.75;margin:0 0 16px;color:#33312c;">"Ti pago in contanti, senza busta: così prendi qualcosa in più". Prima o poi qualcuno lo proporrà anche a te, magari per una stagione estiva. Sembra un affare: niente trattenute, tutto subito in tasca. Ma adesso che sai <em>cosa c'è dentro</em> una busta paga, sai anche esattamente <strong>cosa sparisce</strong> quando la busta non c'è. In Italia lavorano "in nero" quasi tre milioni di persone: vale la pena guardare il conto da vicino.</p>
+            <div class="inc"><div class="ill dx" data-noprint="1"><img loading="lazy" decoding="async" src="assets/app04-rotolo-banconote.png" alt="Un rotolo di banconote stretto da un elastico rosso, con due banconote sciolte accanto"></div>
+            <p style="font-size:18px;line-height:1.75;margin:0 0 16px;color:#33312c;">"Ti pago in contanti, senza busta: così prendi qualcosa in più". Prima o poi qualcuno lo proporrà anche a te, magari per una stagione estiva. Sembra un affare: niente trattenute, tutto subito in tasca. Ma adesso che sai <em>cosa c'è dentro</em> una busta paga, sai anche esattamente <strong>cosa sparisce</strong> quando la busta non c'è. In Italia lavorano "in nero" quasi tre milioni di persone: vale la pena guardare il conto da vicino.</p></div>
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">Il conto di quello che non c'è</h3>
             <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px;">
               <li style="background:#fff;border:1px solid #D9DACF;border-radius:12px;padding:14px 18px;font-size:16px;line-height:1.6;color:#3a3833;"><strong>Niente contributi</strong> → quelle settimane non esistono per l'INPS: non costruiscono pensione, non danno diritto alla NASpI se il lavoro finisce, non contano per la malattia e la maternità;</li>
