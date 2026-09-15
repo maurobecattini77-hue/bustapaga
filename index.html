@@ -235,6 +235,15 @@ blockquote.def p.q{ font-size:24px; }
 /* la cartina del Piemonte (card 13): un disegno, quindi senza cornice */
 .blk.cartina{ border:0; border-radius:0; background:transparent; overflow:visible; }
 .blk.cartina img{ height:auto; object-fit:contain; }
+/* il visore delle foto (ricetta del modulo dell'azienda): velo pieno, foto grande, x per chiudere */
+#velofoto{ position:fixed; inset:0; background:#262420; display:none; align-items:center; justify-content:center; z-index:1200; padding:34px; }
+#velofoto.on{ display:flex; }
+#velofoto img{ max-width:min(1720px,95vw); max-height:91vh; width:auto; height:auto; border-radius:8px; }
+#velofoto img.chiaro{ background:#F8F8F3; padding:28px; box-sizing:border-box; }
+#velofoto .chiudi{ position:absolute; top:16px; right:20px; width:48px; height:48px; border-radius:50%; border:none; background:rgba(248,248,243,.16); color:#F8F8F3; font-size:30px; line-height:1; cursor:pointer; font-family:'Schibsted Grotesk',sans-serif; }
+#velofoto .chiudi:hover{ background:rgba(248,248,243,.30); }
+.fotolente img{ cursor:zoom-in; }
+@media print{ #velofoto{ display:none !important; } }
 /* le illustrazioni Recraft: senza cornice e senza fondo (verdetto del 14/08/2026) */
 .ill{ border:0; background:transparent; }
 .ill img{ display:block; width:100%; height:auto; border:0; background:transparent; }
@@ -1317,7 +1326,7 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:20px;line-height:1.4;letter-spacing:-.2px;color:#7c7268;margin:0 0 26px;">Senza busta paga non manca solo un foglio: manca tutto quello che c'è scritto sopra.</p>
             
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">Un patto senza firma</h3>
-            <div class="inc"><div class="ill dx" data-noprint="1"><img loading="lazy" decoding="async" src="assets/app04-rotolo-banconote.png" alt="Un rotolo di banconote stretto da un elastico rosso, con due banconote sciolte accanto"></div>
+            <div class="inc"><div class="ill dx" data-noprint="1"><img loading="lazy" decoding="async" src="assets/app04-banconote.png" alt="Un ventaglio di banconote da 50 euro, con qualche moneta davanti"></div>
             <p style="font-size:18px;line-height:1.75;margin:0 0 16px;color:#33312c;">"Ti pago in contanti, senza busta: così prendi qualcosa in più". Prima o poi qualcuno lo proporrà anche a te, magari per una stagione estiva. Sembra un affare: niente trattenute, tutto subito in tasca. Ma adesso che sai <em>cosa c'è dentro</em> una busta paga, sai anche esattamente <strong>cosa sparisce</strong> quando la busta non c'è. In Italia lavorano "in nero" quasi tre milioni di persone: vale la pena guardare il conto da vicino.</p></div>
             <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.3px;margin:28px 0 12px;color:#57534A;">Il conto di quello che non c'è</h3>
             <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px;">
@@ -2431,14 +2440,48 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
 </script>
 
 <script>
-/* ============ IMPIANTO NUOVO 25/07/2026 - LA LENTINA SULLE FOTO ============
+/* ============ LA LENTINA SULLE FOTO E IL VISORE DELLE FOTO (16/09/2026) ============
    Regola di Mauro: il «+» va SOLO sulle foto che hanno definizione per essere
    ingrandite (lato lungo >= 1400px). Le altre portano data-lente="no" e restano
-   senza pulsante e senza clic. Le mappe e le grafiche ce l'hanno sempre. */
+   senza pulsante e senza clic. Le mappe e le grafiche ce l'hanno sempre.
+   Ogni foto sta in un guscio .zoomabile.fotolente col pulsante. L'ascoltatore sta sulla
+   FINESTRA, in cattura: parte prima di quello delle grafiche, che altrimenti aprirebbe il
+   disegnino della lente contenuto nel pulsante (il «+» ingrandito, difetto visto da Mauro). */
 (function () {
   var PIU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
           + 'stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.4"/>'
           + '<path d="M14.9 14.9 L20.6 20.6"/><path d="M10 6.9 v6.2 M6.9 10 h6.2"/></svg>';
+  var velo, grande;
+  function costruisci() {
+    if (velo) return;
+    velo = document.createElement('div');
+    velo.id = 'velofoto';
+    var chiudiB = document.createElement('button');
+    chiudiB.type = 'button'; chiudiB.className = 'chiudi';
+    chiudiB.setAttribute('aria-label', 'Chiudi'); chiudiB.innerHTML = '&#215;';
+    grande = document.createElement('img'); grande.alt = '';
+    velo.appendChild(chiudiB); velo.appendChild(grande);
+    document.body.appendChild(velo);
+    chiudiB.addEventListener('click', chiudi);
+    velo.addEventListener('click', function (ev) { if (ev.target === velo) chiudi(); });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && velo.classList.contains('on')) chiudi();
+    });
+  }
+  function chiudi() {
+    velo.classList.remove('on');
+    document.documentElement.style.overflow = '';
+    grande.removeAttribute('src');
+  }
+  function apri(img) {
+    costruisci();
+    var s = img.currentSrc || img.src;
+    grande.src = s; grande.alt = img.alt || '';
+    /* le illustrazioni trasparenti (PNG) si guardano su un fondo chiaro, non sul velo scuro */
+    grande.className = (/\.png($|\?)/i.test(s) || s.indexOf('data:image/png') === 0) ? 'chiaro' : '';
+    velo.classList.add('on');
+    document.documentElement.style.overflow = 'hidden';
+  }
   var foto = [].slice.call(document.querySelectorAll('img')).filter(function (im) {
     var s = im.getAttribute('src') || '';
     if (s.indexOf('logo-arte-bianca') >= 0) return false;
@@ -2460,7 +2503,7 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
       if (!host || !host.parentNode) return;
       if (host.parentNode.classList && host.parentNode.classList.contains('zoomabile')) return;
       var guscio = document.createElement('div');
-      guscio.className = 'zoomabile';
+      guscio.className = 'zoomabile fotolente';
       ['filo', 'sfonda', 'fotomedia', 'fotogrande'].forEach(function (c) {
         if (host.classList.contains(c)) guscio.classList.add(c);
       });
@@ -2472,10 +2515,19 @@ var rough=function(){"use strict";function t(t,e,s){if(t&&t.length){const[n,o]=e
       b.setAttribute('aria-label', 'Ingrandisci la foto');
       b.setAttribute('title', 'Ingrandisci');
       b.innerHTML = PIU;
-      b.addEventListener('click', function (ev) { ev.stopPropagation(); img.click(); });
       guscio.appendChild(b);
     })(foto[i]);
   }
+  window.addEventListener('click', function (ev) {
+    var t = ev.target;
+    if (!t || !t.closest || t.closest('#velofoto')) return;
+    var c = t.closest('.fotolente');
+    if (!c) return;
+    var img = (t.tagName === 'IMG') ? t : c.querySelector('img');
+    if (!img || img.getAttribute('data-lente') === 'no') return;
+    ev.preventDefault(); ev.stopPropagation();
+    apri(img);
+  }, true);
 })();
 </script>
 </body>
