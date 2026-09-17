@@ -211,7 +211,16 @@ blockquote.def p.q{ font-size:24px; }
 /* ---------- LE FOTO: le tre larghezze ---------- */
 .filo{ max-width:880px; margin-left:auto; margin-right:auto; }
 .sfonda{ max-width:1036px; margin-left:auto; margin-right:auto; }
-.fotoriga{ max-width:880px; margin-left:auto; margin-right:auto; }
+.fotoriga{ max-width:880px; margin:26px auto; display:grid; grid-template-columns:1fr 340px; gap:28px; align-items:center; }
+.fotoriga > *{ min-width:0; }
+.fotoriga p.t{ margin-top:0; }
+.fotoriga p.t:last-child{ margin-bottom:0; }
+.fotoblocco{ border-radius:8px; overflow:hidden; border:1px solid #D9DACF; background:transparent; }
+.fotoblocco img{ display:block; width:100%; height:auto; border-radius:7px; cursor:zoom-in; }
+@media (max-width:860px){
+  .fotoriga{ grid-template-columns:1fr; }
+  .fotoriga .fotoblocco{ max-width:380px; margin-left:auto; margin-right:auto; }
+}
 
 /* ---------- LE COMPOSIZIONI DI FOTO (dal campionario approvato il 13/08/2026) ----------
    Selettori «discendenti»: il copione della lente infila ogni foto in due gusci. */
@@ -443,7 +452,10 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <div class="wm" style="color:rgba(172,97,68,.30);">01</div>
         <div class="kicker" style="background:rgba(221,151,122,.18);color:#8a4a30;">Definizione</div>
         <h2>La retribuzione.</h2>
-        <p class="t">Tutto parte da qui. Quando Marco ha firmato il contratto con il Forno Aurora è diventato un <strong>lavoratore subordinato</strong>: come dice l'articolo 2094 del Codice Civile, presta la propria attività alle dipendenze e sotto la direzione dell'imprenditore, e in cambio riceve una <strong>retribuzione</strong>. La retribuzione è il prezzo del lavoro: il compenso che spetta al lavoratore per l'attività svolta. Se riguarda operai e lavori esecutivi si chiama tradizionalmente <strong>salario</strong>; per impiegati, quadri e dirigenti si parla di <strong>stipendio</strong>.</p>
+        <div class="fotoriga">
+          <div><p class="t">Tutto parte da qui. Quando Marco ha firmato il contratto con il Forno Aurora è diventato un <strong>lavoratore subordinato</strong>: come dice l'articolo 2094 del Codice Civile, presta la propria attività alle dipendenze e sotto la direzione dell'imprenditore, e in cambio riceve una <strong>retribuzione</strong>. La retribuzione è il prezzo del lavoro: il compenso che spetta al lavoratore per l'attività svolta. Se riguarda operai e lavori esecutivi si chiama tradizionalmente <strong>salario</strong>; per impiegati, quadri e dirigenti si parla di <strong>stipendio</strong>.</p></div>
+          <div class="fotoblocco filo"><img loading="lazy" decoding="async" src="assets/c01-fornaio.jpg" alt="Un panificatore al lavoro nel laboratorio: infila la pala di legno nella bocca del forno a mattoni, con la luce del mattino che entra dalla finestra"></div>
+        </div>
         <p class="t">Ma quanto deve essere questa retribuzione? Può il datore di lavoro offrire la cifra che vuole? No. La regola più importante sta nella Costituzione:</p>
         <blockquote class="def">
           <p class="q">Il lavoratore ha diritto ad una retribuzione proporzionata alla quantità e qualità del suo lavoro e in ogni caso sufficiente ad assicurare a sé e alla famiglia un'esistenza libera e dignitosa.</p>
