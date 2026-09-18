@@ -216,6 +216,20 @@ blockquote.def p.q{ font-size:24px; }
 .fotoriga p.t{ margin-top:0; }
 .fotoriga p.t:last-child{ margin-bottom:0; }
 .fotoblocco{ border-radius:8px; overflow:hidden; border:1px solid #D9DACF; background:transparent; }
+
+/* ---------- IL DITTICO DEL CONFRONTO (P5, variante senza contorno sulla foto) ---------- */
+.dittico{ display:grid; grid-template-columns:1fr auto 1fr; gap:18px; align-items:center; max-width:880px; margin:26px auto; }
+.dittico > *{ min-width:0; }
+.dittico .lato{ border-radius:16px; overflow:hidden; background:#fff; }
+.dittico .lato img{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; cursor:zoom-in; }
+.dittico .lato .testo{ padding:15px 18px 17px; border:1.5px solid var(--c); border-top:0; border-radius:0 0 16px 16px; }
+.dittico .lato .eti{ font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--e); display:flex; align-items:center; gap:7px; margin-bottom:6px; }
+.dittico .lato .eti::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--c); }
+.dittico .lato h4{ font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:0 0 5px; letter-spacing:-.3px; }
+.dittico .lato p{ font-size:14.5px; line-height:1.55; margin:0; color:#3a3833; }
+.dittico .mezzo{ text-align:center; }
+.dittico .mezzo .eti{ font-family:'Fraunces',serif; font-style:italic; font-size:13.5px; color:#827F75; margin-top:6px; }
+@media (max-width:780px){ .dittico{ grid-template-columns:1fr; } .dittico .mezzo svg{ transform:rotate(90deg); } }
 .fotoblocco img{ display:block; width:100%; height:auto; border-radius:7px; cursor:zoom-in; }
 @media (max-width:860px){
   .fotoriga{ grid-template-columns:1fr; }
@@ -948,6 +962,31 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
         <h2>L'IRPEF e il sostituto d'imposta.</h2>
         <p class="t">Sistemati i contributi, sull'imponibile fiscale di Marco - 2.098,36 euro - arriva la seconda fermata: le <strong>ritenute fiscali</strong>. La protagonista è l'<strong>IRPEF</strong>, l'Imposta sul Reddito delle Persone Fisiche: la più importante imposta italiana, quella che da sola vale circa un terzo di tutte le entrate dello Stato.</p>
         <p class="t">Prima curiosità: Marco quest'imposta <strong>non la verserà mai di persona</strong>. La legge affida il compito al datore di lavoro, che ogni mese trattiene l'IRPEF dalla busta e la versa allo Stato al posto suo. Per questo il datore si chiama <strong class="hl">sostituto d'imposta</strong>: si "sostituisce" al lavoratore nel pagare l'imposta. Il lavoratore riceve lo stipendio già al netto, senza calcoli né scadenze da ricordare.</p>
+        <div class="dittico" data-noprint="1">
+          <div class="lato" style="--c:#C07F49;--e:#8a5320;">
+            <div class="scatto"><img loading="lazy" decoding="async" src="assets/c11-ufficio.jpg" alt="L'ufficio paghe: una donna al computer controlla i documenti del mese, con la vetrata che dà sulle colline"></div>
+            <div class="testo">
+              <div class="eti">Chi calcola e versa</div>
+              <h4>Il sostituto d'imposta.</h4>
+              <p>L'ufficio paghe calcola l'IRPEF di Marco, la trattiene dalla busta e la versa allo Stato al posto suo, entro il giorno 16 del mese successivo.</p>
+            </div>
+          </div>
+          <div class="mezzo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="24" viewBox="0 0 64 24" role="img" aria-label="freccia">
+              <defs><marker id="penSost" viewBox="0 0 10 9" refX="9.2" refY="4.5" markerWidth="8.5" markerHeight="7.6" orient="auto"><path d="M0.5,0.6 C4,2.7 6.6,3.9 9.4,4.5 C6.6,5.1 4,6.3 0.5,8.4 C1.9,6.3 1.9,2.7 0.5,0.6 Z" fill="#57534a"/></marker></defs>
+              <line x1="4" y1="12" x2="56" y2="12" stroke="#57534a" stroke-width="2" marker-end="url(#penSost)"/>
+            </svg>
+            <div class="eti">l'imposta di Marco</div>
+          </div>
+          <div class="lato" style="--c:#4E918C;--e:#2f635f;">
+            <div class="scatto"><img loading="lazy" decoding="async" src="assets/c11-lavoratore.jpg" alt="Un panificatore nel negozio legge il foglio della sua busta paga, in piedi accanto ai cesti del pane"></div>
+            <div class="testo">
+              <div class="eti">Chi riceve</div>
+              <h4>Lo stipendio gi&agrave; netto.</h4>
+              <p>Marco non compila moduli e non ha scadenze da ricordare: incassa quello che resta, con l'imposta gi&agrave; pagata per lui.</p>
+            </div>
+          </div>
+        </div>
         <p class="t">Seconda caratteristica, scritta anche questa nella Costituzione (articolo 53: <em>"Il sistema tributario è informato a criteri di progressività"</em>): l'IRPEF è <strong>progressiva</strong>. Non "chi più guadagna più paga" e basta - quello lo farebbe anche un'aliquota unica - ma <strong>chi più guadagna paga in proporzione di più</strong>. Il meccanismo che lo rende possibile sono gli <strong>scaglioni</strong>: il reddito viene "affettato" in fasce, e ogni fascia paga la sua aliquota.</p>
         <div style="margin:0 0 22px;"><svg viewBox="0 0 1020 430" style="display:block;width:100%;height:auto;" role="img" aria-label="Gli scaglioni IRPEF 2025 come una scala a tre gradini">
             <defs></defs>
