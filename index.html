@@ -49,6 +49,15 @@
     .card p.t { font-size:17px; }
     .grid2 { grid-template-columns:1fr !important; }
   }
+
+/* ===== il ripasso in video (4/10/2026) ===== */
+#ripasso-video .ria-anteprima{display:block;position:relative;width:100%;padding:0;aspect-ratio:16/9;border:1px solid #D9DACF;cursor:pointer;border-radius:8px;overflow:hidden;background:#fff;}
+#ripasso-video .ria-play{transition:transform .18s ease,background .18s ease;}
+#ripasso-video .ria-anteprima:hover .ria-play,#ripasso-video .ria-anteprima:focus-visible .ria-play{transform:translate(-50%,-50%) scale(1.07) !important;background:rgba(38,36,32,.88) !important;}
+#ripasso-video .ria-anteprima:focus-visible{outline:2px solid #5A82AB;outline-offset:3px;}
+#ripasso-video video{display:none;width:100%;aspect-ratio:16/9;border:1px solid #D9DACF;border-radius:8px;background:#fff;}
+@media (max-width:700px){ #ripasso-video{padding:26px 22px 28px !important;border-radius:16px !important;} #ripasso-video h2{font-size:27px !important;} #ripasso-video p{font-size:var(--corpo,18px) !important;} }
+@media (max-width:520px){ #ripasso-video{padding:22px 16px 22px !important;} #ripasso-video h2{font-size:24px !important;} }
 </style>
 
 <style>
@@ -1194,6 +1203,32 @@ section[data-screen-label] li[style*="font-size:17px"]{ font-size:18px !importan
             <p style="font-size:15px;line-height:1.6;color:#5a5750;margin:0;">Nella sezione <strong>Esercizi</strong> ti aspettano i quattro compiti del modulo - e la busta di Marco da costruire con le tue mani, voce per voce, nell'app Cedolino Facile.</p>
           </div>
           <button onclick="goTab('ese')" style="display:inline-flex;align-items:center;gap:9px;background:#E65900;color:#fff;border:none;border-radius:12px;padding:13px 22px;font-family:'Schibsted Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;"><i data-lucide="pencil" class="lucide"></i>Vai agli esercizi</button>
+        </div>
+      </section>
+
+      <!-- ===== IL RIPASSO IN VIDEO (card senza numero e senza data-screen-label: resta fuori da Stampa e Word) ===== -->
+      <section id="ripasso-video" data-noprint="1" style="background:#F8F8F3;border:1px solid #D9DACF;border-top:3px solid #5A82AB;border-radius:18px;padding:40px 44px 44px;margin-bottom:30px;position:relative;overflow:hidden;isolation:isolate;">
+        <div style="max-width:880px;margin:0 auto;">
+        <div class="kicker" style="background:rgba(155,188,221,.28);color:#3a5f85;display:inline-flex;align-items:center;gap:8px;"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="display:block;flex-shrink:0;" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="m6 15.321l9.014-4.883L6 4.804zm9.49-4.003a1 1 0 0 0 .054-1.728L6.53 3.956A1 1 0 0 0 5 4.804v10.517a1 1 0 0 0 1.476.88z" clip-rule="evenodd"/></svg>Il ripasso in video</div>
+        <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:34px;line-height:1.08;letter-spacing:-.8px;margin:14px 0 18px;position:relative;">La busta paga, dal lordo al netto.</h2>
+        <p style="font-size:var(--corpo,21px);line-height:1.74;margin:0;">Un video per ripassare tutto il modulo: la retribuzione e il CCNL, gli elementi fissi e quelli accessori, poi un esercizio completo, dalle anagrafiche fino al <strong>netto in busta</strong>. Il prof spiega e quattro compagni fanno le domande che vengono a tutti. Guardalo dopo aver studiato le card, oppure prima della verifica.</p>
+        <div style="position:relative;margin:22px 0 0;">
+          <button type="button" class="ria-anteprima" aria-label="Guarda il ripasso in video" onclick="var v=document.getElementById('video-ripasso');this.style.display='none';v.style.display='block';var p=v.play();if(p&&p.catch)p.catch(function(){});">
+            <img data-lente="no" loading="lazy" decoding="async" src="assets/ripasso-busta-paga-copertina.jpg" alt="Il ripasso in video della busta paga: il titolo e i cinque personaggi" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:7px;">
+            <span style="position:absolute;inset:0;border-radius:7px;background:linear-gradient(180deg,rgba(38,36,32,0) 76%,rgba(38,36,32,.58) 100%);"></span>
+            <span class="ria-play" style="position:absolute;top:50%;left:50%;width:clamp(54px,8vw,80px);height:clamp(54px,8vw,80px);transform:translate(-50%,-50%);border-radius:50%;background:rgba(38,36,32,.74);border:1.5px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;">
+              <svg aria-hidden="true" viewBox="0 0 24 24" style="width:40%;height:40%;margin-left:9%;display:block;"><path d="M7 4.8 L19 12 L7 19.2 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <span style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:clamp(8px,1.4vw,14px);padding:clamp(8px,1.4vw,14px) clamp(10px,1.8vw,18px);color:#fff;">
+              <svg aria-hidden="true" viewBox="0 0 24 24" style="width:clamp(12px,1.5vw,16px);height:auto;display:block;flex-shrink:0;"><path d="M7 4.8 L19 12 L7 19.2 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <span style="flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.38);"></span>
+              <span style="font-family:'Schibsted Grotesk',sans-serif;font-size:clamp(11px,1.2vw,13px);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;">7:34</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:clamp(14px,1.6vw,18px);height:auto;display:block;flex-shrink:0;"><path d="M11 5 L6 9 H3 V15 H6 L11 19 Z"/><path d="M15.5 8.5 a5 5 0 0 1 0 7"/></svg>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:clamp(14px,1.6vw,18px);height:auto;display:block;flex-shrink:0;"><path d="M4 9 V4 H9 M15 4 H20 V9 M20 15 V20 H15 M9 20 H4 V15"/></svg>
+            </span>
+          </button>
+          <video id="video-ripasso" src="assets/ripasso-busta-paga.mp4" controls="controls" preload="none" playsinline="playsinline"></video>
+        </div>
         </div>
       </section>
 
